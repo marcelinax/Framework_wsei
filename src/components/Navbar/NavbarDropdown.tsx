@@ -3,6 +3,7 @@ import React, { FC, useState } from "react";
 import { DropdownLink } from "../../types/DropdownLink";
 import DropdownSection from "../../types/DropdownSection";
 import IconLinkButton from "../IconLinkButton";
+import NavbarDropdownUserSection from "./NavbarDropdownUserSection";
 import { useLocation } from "react-router";
 
 const dropdownPlatformLinks: DropdownLink[] = [
@@ -36,14 +37,13 @@ const NavbarDropdown: FC = () => {
       (link) => link.linkTo === activeLink
     )[0];
     return (
-      <button className="icon-link-button toggler" onClick={toggleDropdown}>
-        <img
-          src={`media/icons/${link.icon}`}
-          alt={link.icon}
-          className="icon"
-        />
-        <span className="title">{link.title}</span>
-      </button>
+      <IconLinkButton
+        onClick={toggleDropdown}
+        notLink={true}
+        icon={link.icon}
+        to={link.linkTo}
+        title={link.title}
+      />
     );
   };
 
@@ -69,7 +69,10 @@ const NavbarDropdown: FC = () => {
     <div className="dropdown">
       {renderActiveLinkIcon()}
       {dropdownOpen && (
-        <div className="dropdown-open">{renderDropdownSections()}</div>
+        <div className="dropdown-open">
+          {renderDropdownSections()}
+          <NavbarDropdownUserSection />
+        </div>
       )}
     </div>
   );
