@@ -12,12 +12,14 @@ const NavbarDropdownUserSection: FC = () => {
   );
 
   return (
-    <div>
+    <div className="user-section">
       <h2>Account</h2>
       <div className="account-name-box">
         <UserAvatar width={40} height={40} />
-        <p className="user-name">{userName}</p>
-        <Link to="/profile">See profile</Link>
+        <div className="info">
+          <p className="user-name">{userName}</p>
+          <Link to="/profile">See profile</Link>
+        </div>
       </div>
       <IconLinkButton icon={"house.svg"} to="" notLink={true} title="Privacy" />
       <IconLinkButton
@@ -26,6 +28,14 @@ const NavbarDropdownUserSection: FC = () => {
         notLink={true}
         title="Settings"
       />
+      <div className="logout-box">
+        <IconLinkButton
+          icon={"house.svg"}
+          to=""
+          notLink={true}
+          title="Logout"
+        />
+      </div>
     </div>
   );
 };

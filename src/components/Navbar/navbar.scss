@@ -23,6 +23,14 @@
     flex-direction: column;
     position: relative;
 
+    .dropdown-open-arrow {
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
     .dropdown-open {
       position: absolute;
       top: 40px;
@@ -30,6 +38,16 @@
       width: 100%;
       background-color: white;
       padding: 1rem;
+
+      .user-section {
+        .account-name-box {
+          display: flex;
+
+          .info {
+            margin-left: 0.5rem;
+          }
+        }
+      }
     }
   }
 

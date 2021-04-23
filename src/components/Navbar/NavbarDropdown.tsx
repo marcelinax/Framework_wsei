@@ -74,6 +74,11 @@ const NavbarDropdown: FC = () => {
           <NavbarDropdownUserSection />
         </div>
       )}
+      <img
+        src="media/icons/arrow-down.svg"
+        className="dropdown-open-arrow"
+        alt="Arrow down dropdown"
+      />
     </div>
   );
 };
