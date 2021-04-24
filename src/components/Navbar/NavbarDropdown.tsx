@@ -1,10 +1,10 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router";
 
 import { DropdownLink } from "../../types/DropdownLink";
 import DropdownSection from "../../types/DropdownSection";
 import IconLinkButton from "../IconLinkButton";
 import NavbarDropdownUserSection from "./NavbarDropdownUserSection";
-import { useLocation } from "react-router";
 
 const dropdownPlatformLinks: DropdownLink[] = [
   { icon: "house.svg", linkTo: "/", title: "Home" },
@@ -30,20 +30,29 @@ const dropdownSections: DropdownSection[] = [
 const NavbarDropdown: FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const location = useLocation();
+  const history = useHistory();
 
   const renderActiveLinkIcon = () => {
     const activeLink = location.pathname;
-    const link = [...dropdownPlatformLinks, ...dropdownWorkspacesLinks].filter(
+    let link = [...dropdownPlatformLinks, ...dropdownWorkspacesLinks].filter(
       (link) => link.linkTo === activeLink
-    )[0];
+    )[0] || { icon: "house.svg", linkTo: "", title: "Unknown link" };
+
     return (
-      <IconLinkButton
-        onClick={toggleDropdown}
-        notLink={true}
-        icon={link.icon}
-        to={link.linkTo}
-        title={link.title}
-      />
+      <>
+        <IconLinkButton
+          onClick={toggleDropdown}
+          notLink={true}
+          icon={link.icon}
+          to={link.linkTo}
+          title={link.title}
+        />
+        <img
+          src="media/icons/arrow-down.svg"
+          className="dropdown-open-arrow"
+          alt="Arrow down dropdown"
+        />
+      </>
     );
   };
 
@@ -65,6 +74,12 @@ const NavbarDropdown: FC = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  useEffect(() => {
+    history.listen(() => {
+      setDropdownOpen(false);
+    });
+  }, []);
+
   return (
     <div className="dropdown">
       {renderActiveLinkIcon()}
@@ -74,11 +89,6 @@ const NavbarDropdown: FC = () => {
           <NavbarDropdownUserSection />
         </div>
       )}
-      <img
-        src="media/icons/arrow-down.svg"
-        className="dropdown-open-arrow"
-        alt="Arrow down dropdown"
-      />
     </div>
   );
 };
