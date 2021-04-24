@@ -1,3 +1,5 @@
+import "./sidebar.scss";
+
 import React, { FC } from "react";
 
 import SidebarLinks from "./SidebarLinks";

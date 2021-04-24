@@ -5,8 +5,8 @@ import { IconType } from "../../types/IconType";
 
 const buttons: { icon: IconType; notificationAmount: number }[] = [
   { icon: "house.svg", notificationAmount: 0 },
-  { icon: "house.svg", notificationAmount: 3 },
-  { icon: "house.svg", notificationAmount: 3 },
+  { icon: "comments.svg", notificationAmount: 3 },
+  { icon: "bell.svg", notificationAmount: 3 },
 ];
 
 const NavbarButtons: FC = () => {

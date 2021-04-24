@@ -1,0 +1,23 @@
+.sidebar {
+  .user-section {
+    .user-name {
+      color: #4457a9;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .desc {
+      color: #bbbdc0;
+      font-size: 13px;
+      font-weight: 400;
+    }
+  }
+  &-links {
+    padding: 1rem;
+    a {
+      margin-bottom: 1rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

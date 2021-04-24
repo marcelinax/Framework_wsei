@@ -21,16 +21,22 @@ const NavbarDropdownUserSection: FC = () => {
           <Link to="/profile">See profile</Link>
         </div>
       </div>
-      <IconLinkButton icon={"house.svg"} to="" notLink={true} title="Privacy" />
       <IconLinkButton
-        icon={"house.svg"}
+        icon={"privacy.svg"}
+        to=""
+        notLink={true}
+        title="Privacy"
+      />
+      <IconLinkButton
+        icon={"settings.svg"}
         to=""
         notLink={true}
         title="Settings"
       />
+      <hr></hr>
       <div className="logout-box">
         <IconLinkButton
-          icon={"house.svg"}
+          icon={"logout.png"}
           to=""
           notLink={true}
           title="Logout"

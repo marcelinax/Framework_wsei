@@ -14,7 +14,7 @@ const UserCard: FC = () => {
   return (
     <div className="user-card">
       <div className="user-section">
-        <UserAvatar width={100} height={100} />
+        <UserAvatar width={80} height={80} />
         <p className="user-name">{userName}</p>
         <p className="desc">Job title - Company</p>
       </div>
@@ -22,19 +22,19 @@ const UserCard: FC = () => {
       <div className="links">
         <div className="link">
           <IconLinkButton
-            icon={"house.svg"}
+            icon={"people.svg"}
             to="/your-network"
             title={"Your network"}
           />
-          <IconButton icon={"house.svg"} small={true} />
+          <IconButton icon={"user-plus.svg"} small={true} />
         </div>
         <div className="link">
           <IconLinkButton
-            icon={"house.svg"}
+            icon={"publications.svg"}
             to="/your-network"
             title={"Your Publications"}
           />
-          <IconButton icon={"house.svg"} small={true} />
+          <IconButton icon={"plus.svg"} small={true} />
         </div>
       </div>
     </div>

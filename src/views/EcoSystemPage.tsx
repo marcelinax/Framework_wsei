@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 
-const EcoSystemPage: FC = () => {
+const EcosystemPage: FC = () => {
   return (
     <div>
-      <h1>EcoSystemPage</h1>
+      <h1>EcosystemPage</h1>
     </div>
   );
 };
 
-export default EcoSystemPage;
+export default EcosystemPage;

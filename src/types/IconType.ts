@@ -1,1 +1,18 @@
-export type IconType = "house.svg";
+export type IconType =
+  | "house.svg"
+  | "administration.svg"
+  | "arrow-down.svg"
+  | "bell.svg"
+  | "book.svg"
+  | "comments.svg"
+  | "ecosystem.svg"
+  | "entities.svg"
+  | "file.svg"
+  | "people.svg"
+  | "plus.svg"
+  | "privacy.svg"
+  | "publications.svg"
+  | "search.svg"
+  | "settings.svg"
+  | "user-plus.svg"
+  | "logout.png";

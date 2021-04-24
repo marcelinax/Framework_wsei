@@ -4,17 +4,17 @@ import React from "react";
 
 const sidebarLinks: DropdownLink[] = [
   {
-    icon: "house.svg",
+    icon: "publications.svg",
     linkTo: "/publications",
     title: "Publications",
   },
   {
-    icon: "house.svg",
+    icon: "ecosystem.svg",
     linkTo: "/ecosystem",
     title: "Ecosystem",
   },
   {
-    icon: "house.svg",
+    icon: "entities.svg",
     linkTo: "/entities",
     title: "Entities",
   },
@@ -22,7 +22,7 @@ const sidebarLinks: DropdownLink[] = [
 
 const SidebarLinks = () => {
   return (
-    <div>
+    <div className="sidebar-links">
       {sidebarLinks.map((link) => (
         <IconLinkButton title={link.title} icon={link.icon} to={link.linkTo} />
       ))}

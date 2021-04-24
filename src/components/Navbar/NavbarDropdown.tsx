@@ -1,25 +1,53 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { useHistory, useLocation } from "react-router";
 
 import { DropdownLink } from "../../types/DropdownLink";
 import DropdownSection from "../../types/DropdownSection";
 import IconLinkButton from "../IconLinkButton";
+import NavbarDropdownFilter from "./NavbarDropdownFilter";
 import NavbarDropdownUserSection from "./NavbarDropdownUserSection";
+import { useClickOutside } from "../../hooks/UseClickOutside";
 
 const dropdownPlatformLinks: DropdownLink[] = [
   { icon: "house.svg", linkTo: "/", title: "Home" },
-  { icon: "house.svg", linkTo: "/dupa", title: "Dupa" },
-  { icon: "house.svg", linkTo: "/", title: "Home" },
-  { icon: "house.svg", linkTo: "/", title: "Home" },
-  { icon: "house.svg", linkTo: "/", title: "Home" },
+  { icon: "publications.svg", linkTo: "/publications", title: "Publications" },
+  { icon: "people.svg", linkTo: "/people", title: "People" },
+  { icon: "entities.svg", linkTo: "/entities", title: "Entities" },
+  {
+    icon: "administration.svg",
+    linkTo: "/administration",
+    title: "Adrministration",
+  },
 ];
 
 const dropdownWorkspacesLinks: DropdownLink[] = [
-  { icon: "house.svg", linkTo: "/", title: "Client contract" },
-  { icon: "house.svg", linkTo: "/", title: "Client contract" },
-  { icon: "house.svg", linkTo: "/", title: "Client contract" },
-  { icon: "house.svg", linkTo: "/", title: "Client contract" },
-  { icon: "house.svg", linkTo: "/", title: "Client contract" },
+  { icon: "file.svg", linkTo: "/client-contract", title: "Client contract" },
+  {
+    icon: "file.svg",
+    linkTo: "/supplier-contract",
+    title: "Supplier contract",
+  },
+  { icon: "entities.svg", linkTo: "/corporate", title: "Corporate" },
+  { icon: "book.svg", linkTo: "/group-norms", title: "Group Norms" },
+  {
+    icon: "file.svg",
+    linkTo: "/real-estate-contracts",
+    title: "Real estate contracts",
+  },
+];
+
+const otherLinks: DropdownLink[] = [
+  { icon: "ecosystem.svg", linkTo: "/ecosystem", title: "Ecosystem" },
+  {
+    icon: "people.svg",
+    linkTo: "/your-network",
+    title: "Your network",
+  },
+  {
+    icon: "publications.svg",
+    linkTo: "/your-publications",
+    title: "Your publications",
+  },
 ];
 
 const dropdownSections: DropdownSection[] = [
@@ -29,19 +57,29 @@ const dropdownSections: DropdownSection[] = [
 
 const NavbarDropdown: FC = () => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  const [filterQuery, setFilterQuery] = useState<string>("");
   const location = useLocation();
   const history = useHistory();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  useClickOutside(dropdownRef, () => {
+    setDropdownOpen(false);
+  });
 
   const renderActiveLinkIcon = () => {
     const activeLink = location.pathname;
-    let link = [...dropdownPlatformLinks, ...dropdownWorkspacesLinks].filter(
-      (link) => link.linkTo === activeLink
-    )[0] || { icon: "house.svg", linkTo: "", title: "Unknown link" };
+    let link = [
+      ...dropdownPlatformLinks,
+      ...dropdownWorkspacesLinks,
+      ...otherLinks,
+    ].filter((link) => link.linkTo === activeLink)[0] || {
+      icon: "house.svg",
+      linkTo: "",
+      title: "Unknown link",
+    };
 
     return (
-      <>
+      <div onClick={toggleDropdown}>
         <IconLinkButton
-          onClick={toggleDropdown}
           notLink={true}
           icon={link.icon}
           to={link.linkTo}
@@ -52,23 +90,34 @@ const NavbarDropdown: FC = () => {
           className="dropdown-open-arrow"
           alt="Arrow down dropdown"
         />
-      </>
+      </div>
     );
   };
 
   const renderDropdownSections = () =>
-    dropdownSections.map((section) => (
-      <div onClick={toggleDropdown}>
-        <h2>{section.title}</h2>
-        {section.links.map((link) => (
-          <IconLinkButton
-            icon={link.icon}
-            to={link.linkTo}
-            title={link.title}
-          />
-        ))}
-      </div>
-    ));
+    dropdownSections
+      .filter(
+        (section) =>
+          section.links.filter((link) =>
+            link.title.toLowerCase().includes(filterQuery.toLowerCase())
+          ).length > 0
+      )
+      .map((section) => (
+        <div onClick={toggleDropdown} className="">
+          <h2>{section.title}</h2>
+          {section.links
+            .filter((link) =>
+              link.title.toLowerCase().includes(filterQuery.toLowerCase())
+            )
+            .map((link) => (
+              <IconLinkButton
+                icon={link.icon}
+                to={link.linkTo}
+                title={link.title}
+              />
+            ))}
+        </div>
+      ));
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -81,11 +130,13 @@ const NavbarDropdown: FC = () => {
   }, []);
 
   return (
-    <div className="dropdown">
+    <div className="dropdown" ref={dropdownRef}>
       {renderActiveLinkIcon()}
       {dropdownOpen && (
         <div className="dropdown-open">
+          <NavbarDropdownFilter onFilter={setFilterQuery} />
           {renderDropdownSections()}
+          <hr></hr>
           <NavbarDropdownUserSection />
         </div>
       )}
