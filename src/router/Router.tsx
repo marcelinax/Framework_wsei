@@ -4,6 +4,9 @@ import React, { FC, useEffect } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Sidebar from "../components/Sidebar/Sidebar";
 import { getNewUser } from "../store/userStore";
+import { getPhotos } from "../store/photosStore";
+import { getPosts } from "../store/postsStore";
+import { getUsers } from "../store/secondaryUserStore";
 import { routes } from "./routes";
 import { useDispatch } from "react-redux";
 
@@ -12,6 +15,18 @@ const Router: FC = () => {
 
   useEffect(() => {
     getNewUser().then((u) => dispatch(u));
+  }, []);
+
+  useEffect(() => {
+    getPosts().then((p) => dispatch(p));
+  }, []);
+
+  useEffect(() => {
+    getUsers().then((u) => dispatch(u));
+  }, []);
+
+  useEffect(() => {
+    getPhotos().then((p) => dispatch(p));
   }, []);
 
   return (
