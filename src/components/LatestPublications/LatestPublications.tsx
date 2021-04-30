@@ -1,3 +1,5 @@
+import "./latestPublications.scss";
+
 import React, { FC } from "react";
 
 import LatestPublicationsItem from "./LatestPublicationsItem";
@@ -13,30 +15,59 @@ const LatestPublications: FC = () => {
   const users = useSelector<RootState, SecondaryUser[]>((store) => store.users);
   const photos = useSelector<RootState, Photo[]>((store) => store.photos);
 
+  const renderLatestPost = () => {
+    if (posts.length > 0 && users.length > 0 && photos.length > 0) {
+      return (
+        <LatestPublicationsItem
+          publication={{
+            author: users[0],
+            title: posts[0].title,
+            date: new Date(),
+            thumbnailUrl: photos[0].url,
+          }}
+          isBigCard={true}
+        />
+      );
+    }
+    return "";
+  };
+
+  const renderLatestPosts = () => {
+    if (posts.length > 0 && users.length > 0 && photos.length > 0) {
+      return posts.map((post, index) =>
+        index < 4 && index > 0 ? (
+          <LatestPublicationsItem
+            key={post.id}
+            publication={{
+              author: users.filter((user) => user.id === post.userId)[0],
+              title: post.title,
+              date: new Date(),
+              thumbnailUrl: photos.filter((photo) => photo.id === post.id)[0]
+                .url,
+            }}
+          />
+        ) : (
+          ""
+        )
+      );
+    }
+    return "";
+  };
+
   return (
-    <div className="latest-publications">
-      <h2>Latest publications</h2>
-      {posts.length > 0 &&
-        users.length > 0 &&
-        photos.length > 0 &&
-        posts.map((post, index) =>
-          index < 4 && index > 0 ? (
-            <LatestPublicationsItem
-              key={post.id}
-              publication={{
-                author: users.filter((user) => user.id === post.userId)[0],
-                title: post.title,
-                date: new Date(),
-                thumbnailUrl: photos.filter((photo) => photo.id === post.id)[0]
-                  .url,
-              }}
-            />
-          ) : (
-            ""
-          )
-        )}
-      <Link to="/publications">See more publications</Link>
-    </div>
+    <>
+      <div className="post-box-flex">
+        {renderLatestPost()}
+        <div className="latest-publications">
+          <h2>Latest publications</h2>
+          {renderLatestPosts()}
+
+          <Link to="/publications" className="publications-link">
+            See more publications
+          </Link>
+        </div>
+      </div>
+    </>
   );
 };
 

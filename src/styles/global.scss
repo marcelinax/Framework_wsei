@@ -34,7 +34,7 @@ main {
   }
   .content {
     padding-left: 1rem;
-    width: 100%;
+    width: calc(1200px - 300px);
   }
 }
 
@@ -130,24 +130,24 @@ a {
   }
 }
 
-.latest-publications {
-  padding: 1rem;
-  box-shadow: 0 0 10px rgba(#000, 0.1);
+// .latest-publications {
+//   padding: 1rem;
+//   box-shadow: 0 0 10px rgba(#000, 0.1);
 
-  .latest-publication-item {
-    display: flex;
-    height: 100px;
+//   .latest-publication-item {
+//     display: flex;
+//     height: 100px;
 
-    .thumbnail {
-      width: 100px;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-    }
-    .author-avatar {
-      width: 16px;
-      height: 16px;
-      border-radius: 5rem;
-    }
-  }
-}
+//     .thumbnail {
+//       width: 100px;
+//       height: 100%;
+//       background-size: cover;
+//       background-position: center;
+//     }
+//     .author-avatar {
+//       width: 16px;
+//       height: 16px;
+//       border-radius: 5rem;
+//     }
+//   }
+// }

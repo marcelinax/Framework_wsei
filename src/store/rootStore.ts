@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import commentsReducer from "./commentsStore";
 import photosReducer from "./photosStore";
 import postsReducer from "./postsStore";
 import userReducer from "./userStore";
@@ -9,6 +10,7 @@ const rootReducer = combineReducers({
   posts: postsReducer,
   users: usersReducer,
   photos: photosReducer,
+  comments: commentsReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

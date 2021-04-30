@@ -1,12 +1,15 @@
 import React, { FC } from "react";
 
 import LatestPublications from "../components/LatestPublications/LatestPublications";
+import ResumeWorkList from "../components/ResumeWork/ResumeWorkList";
+import Workspaces from "../components/Workspaces/Workspaces";
 
 const HomePage: FC = () => {
   return (
     <div>
-      <h1>HOMEPAGE</h1>
       <LatestPublications />
+      <Workspaces />
+      <ResumeWorkList></ResumeWorkList>
     </div>
   );
 };

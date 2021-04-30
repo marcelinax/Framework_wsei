@@ -3,6 +3,7 @@ import React, { FC, useEffect } from "react";
 
 import Navbar from "../components/Navbar/Navbar";
 import Sidebar from "../components/Sidebar/Sidebar";
+import { getComments } from "../store/commentsStore";
 import { getNewUser } from "../store/userStore";
 import { getPhotos } from "../store/photosStore";
 import { getPosts } from "../store/postsStore";
@@ -27,6 +28,10 @@ const Router: FC = () => {
 
   useEffect(() => {
     getPhotos().then((p) => dispatch(p));
+  }, []);
+
+  useEffect(() => {
+    getComments().then((c) => dispatch(c));
   }, []);
 
   return (
