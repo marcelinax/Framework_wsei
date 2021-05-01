@@ -6,30 +6,35 @@
   h2 {
     margin-left: 1rem;
   }
-  .filter {
-    width: 200px;
-    position: relative;
+  &-right {
     display: flex;
-    align-items: center;
-    input {
-      width: 100%;
-      height: 32px;
-      border: 1px solid rgba(#000, 0.2);
-      border-radius: 5px;
-      outline: none;
-      padding-left: 0.3rem;
+
+    .filter {
+      width: 200px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-right: 1rem;
+      input {
+        width: 100%;
+        height: 32px;
+        border: 1px solid rgba(#000, 0.2);
+        border-radius: 5px;
+        outline: none;
+        padding-left: 0.3rem;
+      }
+      .icon {
+        position: absolute;
+        right: 10px;
+      }
     }
-    .icon {
-      position: absolute;
-      right: 10px;
-    }
-  }
-  .sort-by {
-    display: flex;
-    align-items: center;
-    .icon,
-    h5 {
-      margin-right: 0.5rem;
+    .sort-by {
+      display: flex;
+      align-items: center;
+      .icon,
+      h5 {
+        margin-right: 0.5rem;
+      }
     }
   }
 }
@@ -39,7 +44,7 @@
   flex-direction: column;
   .resume-work-item {
     width: calc(100% - 3rem);
-    box-shadow: 0 0 20px rgba(#000, 0.2);
+    box-shadow: 0 0 10px rgba(#000, 0.1);
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -77,6 +82,26 @@
       .date {
         color: #bbbdc0;
       }
+    }
+  }
+}
+.pagination {
+  display: flex;
+  margin-bottom: 2rem;
+
+  margin-top: 0.5rem;
+  .page {
+    margin-right: 0.5rem;
+    border: 1px solid rgba(#000, 0.1);
+    width: 29px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s all;
+    &:hover {
+      transform: scale(1.1);
+      background-color: rgba(#000, 0.2);
+      border: 1px solid rgba(#000, 0.3);
     }
   }
 }
