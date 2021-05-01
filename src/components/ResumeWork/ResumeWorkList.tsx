@@ -19,6 +19,7 @@ const ResumeWorkList: FC = () => {
   const posts = useSelector<RootState, Post[]>((store) => store.posts);
   const photos = useSelector<RootState, Photo[]>((store) => store.photos);
 
+  const [filterQuery, setFilterQuery] = useState<string>("");
   const [page, setPage] = useState<number>(1);
   const [pageSize] = useState<number>(10);
 
@@ -30,6 +31,9 @@ const ResumeWorkList: FC = () => {
       comments.length > 0
     ) {
       return comments
+        .filter((c) =>
+          c.name.toLocaleLowerCase().includes(filterQuery.toLocaleLowerCase())
+        )
         .filter(
           (_, index) => index > (page - 1) * pageSize && index < page * pageSize
         )
@@ -58,7 +62,10 @@ const ResumeWorkList: FC = () => {
       <div className="resume-work-menu">
         <h2>Resume your work</h2>
         <div className="resume-work-menu-right">
-          <ResumeWorkFilter />
+          <ResumeWorkFilter
+            filterQuery={filterQuery}
+            setFilter={setFilterQuery}
+          />
           <ResumeWorkSortBy />
         </div>
       </div>
