@@ -13,9 +13,8 @@ const Pagination: FC<Props> = ({
   pageSize,
   setPage,
 }) => {
+  const pageAmount = Math.ceil(totalPage / pageSize);
   const getPageArray = (): number[] => {
-    const pageAmount = Math.ceil(totalPage / pageSize);
-
     let pageArr: number[] = [];
     for (let i = 1; i <= pageAmount; i++) {
       if (
@@ -35,10 +34,15 @@ const Pagination: FC<Props> = ({
   };
   return (
     <div className="pagination">
+      {currentPage > 1 && (
+        <div className="page" onClick={() => setPage(currentPage - 1)}>
+          PREVIOUS
+        </div>
+      )}
       {getPageArray().map((pageIndex) =>
         pageIndex !== 0 ? (
           <div
-            className="page"
+            className={"page" + (pageIndex === currentPage ? " active" : "")}
             key={pageIndex}
             onClick={() => setPage(pageIndex)}
           >
@@ -49,6 +53,11 @@ const Pagination: FC<Props> = ({
             ...
           </div>
         )
+      )}
+      {currentPage < pageAmount && (
+        <div className="page" onClick={() => setPage(currentPage - 1)}>
+          NEXT
+        </div>
       )}
     </div>
   );

@@ -88,20 +88,25 @@
 .pagination {
   display: flex;
   margin-bottom: 2rem;
+  justify-content: center;
+  width: 100%;
 
   margin-top: 0.5rem;
   .page {
+    color: rgb(1, 1, 116);
+    font-weight: 600;
     margin-right: 0.5rem;
-    border: 1px solid rgba(#000, 0.1);
-    width: 29px;
+    min-width: 32px;
+    padding: 0.2rem 0.4rem;
+    display: block;
     text-align: center;
     border-radius: 4px;
     cursor: pointer;
     transition: 0.3s all;
-    &:hover {
+    &:hover,
+    &.active {
       transform: scale(1.1);
-      background-color: rgba(#000, 0.2);
-      border: 1px solid rgba(#000, 0.3);
+      background-color: rgba(#000, 0.1);
     }
   }
 }
