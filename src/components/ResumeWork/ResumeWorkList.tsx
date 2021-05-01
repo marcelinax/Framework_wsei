@@ -1,9 +1,13 @@
+import "./resumeWork.scss";
+
 import React, { FC } from "react";
 
 import { Comment } from "../../types/Comment";
 import { Photo } from "../../types/Photo";
 import { Post } from "../../types/Post";
+import ResumeWorkFilter from "./ResumeWorkFilter";
 import ResumeWorkListItem from "./ResumeWorkListItem";
+import ResumeWorkSortBy from "./ResumeWorkSortBy";
 import { RootState } from "../../store/rootStore";
 import { SecondaryUser } from "../../types/SecondaryUser";
 import { useSelector } from "react-redux";
@@ -42,13 +46,14 @@ const ResumeWorkList: FC = () => {
   };
 
   return (
-    <div className="resume-work-list">
+    <>
       <div className="resume-work-menu">
         <h2>Resume your work</h2>
+        <ResumeWorkFilter />
+        <ResumeWorkSortBy />
       </div>
-
-      {renderResumeWorks()}
-    </div>
+      <div className="resume-work-list">{renderResumeWorks()}</div>
+    </>
   );
 };
 

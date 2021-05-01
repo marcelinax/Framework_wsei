@@ -15,4 +15,5 @@ export type IconType =
   | "search.svg"
   | "settings.svg"
   | "user-plus.svg"
-  | "logout.png";
+  | "logout.png"
+  | "sort-solid.svg";

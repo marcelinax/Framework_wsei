@@ -28,9 +28,9 @@ const ResumeWorkListItem: FC<Props> = ({
   return (
     <div className="resume-work-item">
       <h3>{title}</h3>
-      <p>{content}</p>
+      <p className="content">{content}</p>
       <div className="detalis-box">
-        <img src={companyLogoUrl} alt="" />
+        <img src={companyLogoUrl} alt="" className="comapany-logo" />
         <p className="company-name">{companyName}</p>•
         <Icon icon={icon} size={12}></Icon>
         <p className="contract-type">{contract}</p>•

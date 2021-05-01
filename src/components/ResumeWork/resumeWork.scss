@@ -1,0 +1,82 @@
+.resume-work-menu {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  justify-content: space-between;
+  h2 {
+    margin-left: 1rem;
+  }
+  .filter {
+    width: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    input {
+      width: 100%;
+      height: 32px;
+      border: 1px solid rgba(#000, 0.2);
+      border-radius: 5px;
+      outline: none;
+      padding-left: 0.3rem;
+    }
+    .icon {
+      position: absolute;
+      right: 10px;
+    }
+  }
+  .sort-by {
+    display: flex;
+    align-items: center;
+    .icon,
+    h5 {
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.resume-work-list {
+  display: flex;
+  flex-direction: column;
+  .resume-work-item {
+    width: calc(100% - 3rem);
+    box-shadow: 0 0 20px rgba(#000, 0.2);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 0.5rem;
+
+    h3 {
+      color: #4457a9;
+    }
+    .content {
+      font-size: 1rem;
+      padding-left: 0;
+      color: #bbbdc0;
+      width: 100%;
+    }
+    .detalis-box {
+      display: flex;
+      align-items: center;
+      margin-top: 1rem;
+      .comapany-logo {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+      }
+      p {
+        font-size: 13px;
+        margin-left: 0.5rem;
+        margin-right: 1rem;
+        color: #73798a;
+      }
+      .icon {
+        margin-left: 1rem;
+      }
+      .date {
+        color: #bbbdc0;
+      }
+    }
+  }
+}
