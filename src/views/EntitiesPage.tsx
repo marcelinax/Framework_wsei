@@ -1,9 +1,26 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
+
+import EntitiesList from "../components/EntitiesList/EntitiesList";
+import EntitiesListButtons from "../components/EntitiesList/EntitiesListButtons";
+import EntitiesListFilter from "../components/EntitiesList/EntitiesListFilter";
 
 const EntitiesPage: FC = () => {
+  const [showFilters, setShowFilters] = useState<boolean>(false);
+  const [filter, setFilter] = useState<string>("");
+
+  const toggleFiltersVisible = () => {
+    setShowFilters(!showFilters);
+  };
   return (
     <div>
-      <h1>EntitiesPage</h1>
+      <EntitiesListButtons
+        onToogleFilters={toggleFiltersVisible}
+        filterQuery={filter}
+        onFilterChange={setFilter}
+      />
+      {showFilters ? <EntitiesListFilter /> : ""}
+
+      <EntitiesList filterQuery={filter} />
     </div>
   );
 };

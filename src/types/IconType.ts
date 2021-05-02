@@ -16,4 +16,15 @@ export type IconType =
   | "settings.svg"
   | "user-plus.svg"
   | "logout.png"
-  | "sort-solid.svg";
+  | "antenna.svg"
+  | "share-solid.svg"
+  | "expand-alt-solid.svg"
+  | "filter-solid.svg"
+  | "ellipsis-h-solid.svg"
+  | "sort-solid.svg"
+  | "cog-solid.svg"
+  | "th-large-solid.svg"
+  | "bars-solid.svg"
+  | "dot-circle-regular.svg"
+  | "times-solid.svg"
+  | "plus-solid.svg";
