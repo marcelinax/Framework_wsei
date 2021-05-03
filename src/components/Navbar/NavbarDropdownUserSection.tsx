@@ -18,19 +18,19 @@ const NavbarDropdownUserSection: FC = () => {
         <UserAvatar width={40} height={40} />
         <div className="info">
           <p className="user-name">{userName}</p>
-          <Link to="/profile">See profile</Link>
+          <Link to="/your-profile">See profile</Link>
         </div>
       </div>
       <IconLinkButton
         icon={"privacy.svg"}
-        to=""
-        notLink={true}
+        to="/privacy"
+        notLink={false}
         title="Privacy"
       />
       <IconLinkButton
         icon={"settings.svg"}
-        to=""
-        notLink={true}
+        to="/settings"
+        notLink={false}
         title="Settings"
       />
       <hr></hr>

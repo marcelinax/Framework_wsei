@@ -6,10 +6,15 @@ import EntitiesPage from "../views/EntitiesPage";
 import GroupNormsPage from "../views/GroupNormsPage";
 import HomePage from "../views/HomePage";
 import PeoplePage from "../views/PeoplePage";
+import PrivacyPage from "../views/PrivacyPage";
+import ProfilePage from "../views/ProfilePage";
 import PublicationsPage from "../views/PublicationsPage";
 import React from "react";
 import RealEstateContractsPage from "../views/RealEstateContractsPage";
+import SettingsPage from "../views/SettingsPage";
 import SupplierContractPage from "../views/SupplierContractPage";
+import YourNetworkPage from "../views/YourNetworkPage";
+import YourPublicationsPage from "../views/YourPublicationsPage";
 
 interface Route {
   component: React.FC;
@@ -71,6 +76,31 @@ export const routes: Route[] = [
   {
     component: EcosystemPage,
     path: "/ecosystem",
+    exact: true,
+  },
+  {
+    component: PrivacyPage,
+    path: "/privacy",
+    exact: true,
+  },
+  {
+    component: SettingsPage,
+    path: "/settings",
+    exact: true,
+  },
+  {
+    component: YourNetworkPage,
+    path: "/your-network",
+    exact: true,
+  },
+  {
+    component: YourPublicationsPage,
+    path: "/your-publications",
+    exact: true,
+  },
+  {
+    component: ProfilePage,
+    path: "/your-profile",
     exact: true,
   },
 ];

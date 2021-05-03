@@ -48,6 +48,21 @@ const otherLinks: DropdownLink[] = [
     linkTo: "/your-publications",
     title: "Your publications",
   },
+  {
+    icon: "settings.svg",
+    linkTo: "/settings",
+    title: "Settings",
+  },
+  {
+    icon: "privacy.svg",
+    linkTo: "/privacy",
+    title: "Privacy",
+  },
+  {
+    icon: "people.svg",
+    linkTo: "/your-profile",
+    title: "Your profile ",
+  },
 ];
 
 const dropdownSections: DropdownSection[] = [

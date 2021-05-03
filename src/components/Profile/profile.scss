@@ -1,0 +1,110 @@
+.profile {
+  margin-left: 1rem;
+  hr {
+    margin: 1rem 0;
+  }
+  &-information {
+    display: flex;
+    flex-direction: column;
+    .options {
+      display: flex;
+    }
+    .profile-box {
+      display: flex;
+      justify-content: space-between;
+      .user {
+        width: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .user-information {
+      display: flex;
+      width: 100%;
+      &-left {
+        margin-right: auto;
+        display: flex;
+        flex-direction: column;
+      }
+      &-right {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+      }
+      .name,
+      .company {
+        font-weight: 700;
+      }
+    }
+  }
+  .user-tags {
+    .tag-group {
+      .tag {
+        display: inline-block;
+        background-color: #e6f0f3;
+        color: rgb(106, 138, 184);
+        border-radius: 4px;
+        padding: 0 0.5rem;
+        margin-right: 0.3rem;
+      }
+    }
+  }
+  .profile-panel-informations {
+    h5 {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      font-weight: 100;
+    }
+    p {
+      margin-bottom: 0.2rem;
+    }
+    .bold {
+      font-weight: 500;
+    }
+    .file {
+      background-color: rgba(#000, 0.05);
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.2rem;
+      &-avatar {
+        display: flex;
+        align-items: center;
+        button {
+          &:first-of-type {
+            margin-left: 5rem;
+          }
+          margin-left: 2rem;
+        }
+      }
+      .icon {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .profile-proposals,
+  .profile-internal-reviews,
+  .profile-amount-of-fees {
+    h4 {
+      margin-bottom: 1rem;
+    }
+    table {
+      width: 100%;
+    }
+    .see-more {
+      display: block;
+      text-align: right;
+      color: teal;
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
+    .see-more-reviews {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: black;
+      margin-top: 0.5rem;
+    }
+  }
+}

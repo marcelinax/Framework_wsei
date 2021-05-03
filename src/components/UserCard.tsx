@@ -33,7 +33,7 @@ const UserCard: FC = () => {
         <div className="link">
           <IconLinkButton
             icon={"publications.svg"}
-            to="/your-network"
+            to="/your-publications"
             title={"Your Publications"}
           />
           <IconButton icon={"plus.svg"} small={true} />
