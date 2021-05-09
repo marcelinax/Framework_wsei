@@ -1,6 +1,6 @@
 import "./entitiesList.scss";
 
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
 import EntitiesListItem from "./EntitiesListItem";
 import { Photo } from "../../types/Photo";
@@ -9,13 +9,14 @@ import { useSelector } from "react-redux";
 
 interface Props {
   filterQuery: string;
+  list: boolean;
 }
 
-const EntitiesList: FC<Props> = ({ filterQuery }) => {
+const EntitiesList: FC<Props> = ({ filterQuery, list }) => {
   const photos = useSelector<RootState, Photo[]>((store) => store.photos);
 
   return (
-    <div className="entitles-list">
+    <div className={"entitles-list" + (list ? " list" : "")}>
       {photos
         .filter(
           (p, i) =>

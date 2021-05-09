@@ -14,8 +14,9 @@
     align-items: center;
     border: 1px solid rgba(#bbbdc0, 0.5);
     border-radius: 4px;
-    div {
-      background-color: #eaecf5;
+
+    button {
+      background-color: #fff;
       display: flex;
       align-items: center;
       padding: 0.5rem;
@@ -25,6 +26,9 @@
       }
       p {
         font-size: 0.7rem;
+      }
+      &.active {
+        background-color: #eaecf5;
       }
     }
     button {
@@ -127,6 +131,11 @@
 .entitles-list {
   display: flex;
   flex-wrap: wrap;
+  &.list {
+    .entitles-list-item {
+      width: 100%;
+    }
+  }
 
   .entitles-list-item {
     width: 25%;

@@ -7,12 +7,16 @@ interface Props {
   onToogleFilters: () => void;
   filterQuery: string;
   onFilterChange: (filter: string) => void;
+  isList: boolean;
+  toggleList: (state: boolean) => void;
 }
 
 const EntitiesListButtons: FC<Props> = ({
   onToogleFilters,
   filterQuery,
   onFilterChange,
+  toggleList,
+  isList,
 }) => {
   return (
     <>
@@ -22,11 +26,17 @@ const EntitiesListButtons: FC<Props> = ({
           <Icon icon={"cog-solid.svg"} size={13} />
         </div>
         <div className="right-side">
-          <div>
+          <button
+            onClick={() => toggleList(false)}
+            className={!isList ? "active" : ""}
+          >
             <Icon icon={"th-large-solid.svg"} size={20} />
             <p>Mosaic</p>
-          </div>
-          <button>
+          </button>
+          <button
+            onClick={() => toggleList(true)}
+            className={isList ? "active" : ""}
+          >
             <Icon icon={"bars-solid.svg"} size={20} />
           </button>
         </div>
