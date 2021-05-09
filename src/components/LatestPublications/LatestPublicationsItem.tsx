@@ -1,8 +1,10 @@
 import React, { FC } from "react";
 
+import { Photo } from "../../types/Photo";
 import Publication from "../../types/Publication";
 import { RootState } from "../../store/rootStore";
 import { User } from "../../types/User";
+import { emptyUser } from "../../defaults/emptyUser";
 import moment from "moment";
 import { useSelector } from "react-redux";
 
@@ -12,7 +14,12 @@ interface Props {
 }
 
 const LatestPublicationsItem: FC<Props> = ({ publication, isBigCard }) => {
-  const user = useSelector<RootState, User>((store) => store.user);
+  const user =
+    useSelector<RootState, User[]>((store) => store.users)[0] || emptyUser;
+  const userPhotoUrl =
+    useSelector<RootState, string>(
+      (store) => store.photos.filter((p) => p.id === user.id)[0].url
+    ) || "";
 
   return (
     <div className={isBigCard ? "latest-post-card" : "latest-publication-item"}>
@@ -27,7 +34,7 @@ const LatestPublicationsItem: FC<Props> = ({ publication, isBigCard }) => {
             {moment(publication.date).format("D MMM. YYYY")}
           </p>
           <img
-            src={user.picture.large}
+            src={userPhotoUrl}
             alt={publication.author.name}
             className="author-avatar"
           />

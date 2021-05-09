@@ -1,6 +1,6 @@
-import { SecondaryUser } from "../types/SecondaryUser";
+import { User } from "../types/User";
 
-const initState: SecondaryUser[] = [];
+const initState: User[] = [];
 
 type GET_USERS = "GET_USERS";
 type UserStoreActions = GET_USERS;
@@ -15,12 +15,12 @@ export const getUsers = async () => {
 };
 
 const usersReducer = (
-  state: SecondaryUser[] = initState,
+  state: User[] = initState,
   action: {
     type: UserStoreActions;
-    payload: SecondaryUser[];
+    payload: User[];
   }
-): SecondaryUser[] => {
+): User[] => {
   switch (action.type) {
     case "GET_USERS":
       return action.payload;

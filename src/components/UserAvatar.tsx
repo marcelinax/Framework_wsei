@@ -1,6 +1,9 @@
 import React, { FC } from "react";
 
+import { Photo } from "../types/Photo";
 import { RootState } from "../store/rootStore";
+import { User } from "../types/User";
+import { emptyPhoto } from "../defaults/emptyPhoto";
 import { useSelector } from "react-redux";
 
 interface Props {
@@ -9,13 +12,15 @@ interface Props {
 }
 
 const UserAvatar: FC<Props> = ({ height, width }) => {
-  const imgSrc = useSelector<RootState, string>(
-    (store) => store.user.picture.large
-  );
+  const loggedUser = useSelector<RootState, User>((store) => store.loggedUser);
+  const userPhotoUrl =
+    useSelector<RootState, Photo>(
+      (store) => store.photos.filter((p) => p.id === loggedUser.id)[0]
+    ) || emptyPhoto;
 
   return (
     <img
-      src={imgSrc}
+      src={userPhotoUrl.url}
       alt="User avator"
       className="user-avatar"
       width={width}

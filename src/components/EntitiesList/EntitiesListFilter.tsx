@@ -4,7 +4,7 @@ import Icon from "../Icon";
 
 const EntitiesListFilter: FC = () => {
   return (
-    <div className="filter">
+    <div className="entities-filter">
       <p className="title">
         Rows are filtered by the following conditions starting from the top.
       </p>

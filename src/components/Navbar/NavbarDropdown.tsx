@@ -16,7 +16,7 @@ const dropdownPlatformLinks: DropdownLink[] = [
   {
     icon: "administration.svg",
     linkTo: "/administration",
-    title: "Adrministration",
+    title: "Administration",
   },
 ];
 

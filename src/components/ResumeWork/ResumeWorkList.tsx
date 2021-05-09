@@ -10,11 +10,11 @@ import ResumeWorkFilter from "./ResumeWorkFilter";
 import ResumeWorkListItem from "./ResumeWorkListItem";
 import ResumeWorkSortBy from "./ResumeWorkSortBy";
 import { RootState } from "../../store/rootStore";
-import { SecondaryUser } from "../../types/SecondaryUser";
+import { User } from "../../types/User";
 import { useSelector } from "react-redux";
 
 const ResumeWorkList: FC = () => {
-  const users = useSelector<RootState, SecondaryUser[]>((store) => store.users);
+  const users = useSelector<RootState, User[]>((store) => store.users);
   const comments = useSelector<RootState, Comment[]>((store) => store.comments);
   const posts = useSelector<RootState, Post[]>((store) => store.posts);
   const photos = useSelector<RootState, Photo[]>((store) => store.photos);

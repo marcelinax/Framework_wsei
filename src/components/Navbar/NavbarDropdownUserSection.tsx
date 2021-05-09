@@ -3,13 +3,14 @@ import React, { FC } from "react";
 import IconLinkButton from "../IconLinkButton";
 import { Link } from "react-router-dom";
 import { RootState } from "../../store/rootStore";
+import { User } from "../../types/User";
 import UserAvatar from "../UserAvatar";
+import { emptyUser } from "../../defaults/emptyUser";
 import { useSelector } from "react-redux";
 
 const NavbarDropdownUserSection: FC = () => {
-  const userName = useSelector<RootState, string>(
-    (store) => `${store.user.name.first} ${store.user.name.last}`
-  );
+  const user =
+    useSelector<RootState, User>((store) => store.users[0]) || emptyUser;
 
   return (
     <div className="user-section">
@@ -17,7 +18,7 @@ const NavbarDropdownUserSection: FC = () => {
       <div className="account-name-box">
         <UserAvatar width={40} height={40} />
         <div className="info">
-          <p className="user-name">{userName}</p>
+          <p className="user-name">{user.name}</p>
           <Link to="/your-profile">See profile</Link>
         </div>
       </div>
