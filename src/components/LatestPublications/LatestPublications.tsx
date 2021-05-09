@@ -14,11 +14,13 @@ const LatestPublications: FC = () => {
   const posts = useSelector<RootState, Post[]>((store) => store.posts);
   const users = useSelector<RootState, User[]>((store) => store.users);
   const photos = useSelector<RootState, Photo[]>((store) => store.photos);
+  const loggedUser = useSelector<RootState, User>((store) => store.loggedUser);
 
   const renderLatestPost = () => {
     if (posts.length > 0 && users.length > 0 && photos.length > 0) {
       return (
         <LatestPublicationsItem
+          userId={loggedUser.id}
           publication={{
             author: users[0],
             title: posts[0].title,
@@ -37,6 +39,7 @@ const LatestPublications: FC = () => {
       return posts.map((post, index) =>
         index < 4 && index > 0 ? (
           <LatestPublicationsItem
+            userId={index}
             key={post.id}
             publication={{
               author: users.filter((user) => user.id === post.userId)[0],

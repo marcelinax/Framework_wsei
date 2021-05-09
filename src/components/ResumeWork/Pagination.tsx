@@ -55,7 +55,7 @@ const Pagination: FC<Props> = ({
         )
       )}
       {currentPage < pageAmount && (
-        <div className="page" onClick={() => setPage(currentPage - 1)}>
+        <div className="page" onClick={() => setPage(currentPage + 1)}>
           NEXT
         </div>
       )}
