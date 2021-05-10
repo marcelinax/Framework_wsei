@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 
 const NavbarDropdownUserSection: FC = () => {
   const user =
-    useSelector<RootState, User>((store) => store.users[0]) || emptyUser;
+    useSelector<RootState, User>((store) => store.loggedUser);
 
   return (
     <div className="user-section">

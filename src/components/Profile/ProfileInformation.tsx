@@ -1,9 +1,16 @@
 import React, { FC } from "react";
 
 import { Link } from "react-router-dom";
+import { RootState } from "../../store/rootStore";
+import { User } from "../../types/User";
 import UserAvatar from "../UserAvatar";
+import { useSelector } from "react-redux";
 
 const ProfileInformation: FC = () => {
+
+  const user =
+    useSelector<RootState, User>((store) => store.loggedUser);
+
   return (
     <div className="profile-information">
       <div className="options"></div>
@@ -14,14 +21,14 @@ const ProfileInformation: FC = () => {
         </div>
         <div className="user-information">
           <div className="user-information-left">
-            <p className="name">Humberta Swift</p>
-            <p className="company">Clifford Chance</p>
-            <p className="city">New-york</p>
-            <p className="position">partner</p>
+            <p className="name">{user.name}</p>
+            <p className="company">{user.company.name}</p>
+            <p className="city">{user.address.city}</p>
+            <p className="position">{user.address.suite}</p>
           </div>
           <div className="user-information-right">
-            <p className="email">dupamaryna@super-mail.pl.com</p>
-            <p className="number-phone">+33 (0)6 69 69 69 69</p>
+            <p className="email">{user.email}</p>
+            <p className="number-phone">{user.phone}</p>
           </div>
         </div>
       </div>
