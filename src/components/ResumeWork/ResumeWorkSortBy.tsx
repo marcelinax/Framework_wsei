@@ -23,7 +23,7 @@ const ResumeWorkSortBy: FC<Props> = ({ updateSelectedUser }) => {
         onClick={() => updateSelectedUser(loggedUser.id)}
       >
         <Icon icon={"antenna.svg"} size={20} />
-        <h5>May</h5>
+        <h5>My</h5>
         <Icon icon={"arrow-down.svg"} size={10} />
       </div>
       <div
