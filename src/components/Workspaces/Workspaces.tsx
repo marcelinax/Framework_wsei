@@ -39,6 +39,7 @@ const Workspaces: FC = () => {
       {photos.length > 1000 && (
         <div className="slider" ref={sliderRef}>
           <WorkspacesItem
+            to="client-contract"
             date={new Date("2021-04-25T07:10:00")}
             icon={"file.svg"}
             title={"Client contract"}
@@ -47,6 +48,7 @@ const Workspaces: FC = () => {
             shortcut={"Contract"}
           ></WorkspacesItem>
           <WorkspacesItem
+            to="supplier-contract"
             date={new Date("2021-04-25T07:10:00")}
             icon={"file.svg"}
             title={"Supplier contract"}
@@ -55,6 +57,7 @@ const Workspaces: FC = () => {
             shortcut={"Contract"}
           ></WorkspacesItem>
           <WorkspacesItem
+            to="corporate"
             date={new Date("2021-04-25T07:10:00")}
             icon={"entities.svg"}
             title={"Corporate"}
@@ -63,6 +66,7 @@ const Workspaces: FC = () => {
             shortcut={"Corporate"}
           ></WorkspacesItem>
           <WorkspacesItem
+            to="group-norms"
             date={new Date("2021-04-25T07:10:00")}
             icon={"book.svg"}
             title={"Group Norms"}
@@ -71,6 +75,7 @@ const Workspaces: FC = () => {
             shortcut={"Norms"}
           ></WorkspacesItem>
           <WorkspacesItem
+            to="real-estate-contracts"
             date={new Date("2021-04-25T07:10:00")}
             icon={"file.svg"}
             title={"Real estate contracts"}

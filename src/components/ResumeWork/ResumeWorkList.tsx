@@ -14,7 +14,11 @@ import { RootState } from "../../store/rootStore";
 import { User } from "../../types/User";
 import { useSelector } from "react-redux";
 
-const ResumeWorkList: FC = () => {
+interface Props {
+  filterHide?: boolean;
+}
+
+const ResumeWorkList: FC<Props> = ({ filterHide }) => {
   const users = useSelector<RootState, User[]>((store) => store.users);
   const companies = useSelector<RootState, Company[]>(
     (store) => store.companies
@@ -71,16 +75,18 @@ const ResumeWorkList: FC = () => {
 
   return (
     <>
-      <div className="resume-work-menu">
-        <h2>Resume your work</h2>
-        <div className="resume-work-menu-right">
-          <ResumeWorkFilter
-            filterQuery={filterQuery}
-            setFilter={setFilterQuery}
-          />
-          <ResumeWorkSortBy updateSelectedUser={setSelectedUserId} />
+      {!filterHide && (
+        <div className="resume-work-menu">
+          <h2>Resume your work</h2>
+          <div className="resume-work-menu-right">
+            <ResumeWorkFilter
+              filterQuery={filterQuery}
+              setFilter={setFilterQuery}
+            />
+            <ResumeWorkSortBy updateSelectedUser={setSelectedUserId} />
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="resume-work-list">{renderResumeWorks()}</div>
       <Pagination

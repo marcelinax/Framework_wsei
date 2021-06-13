@@ -1,0 +1,145 @@
+.workspace-hello {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(#000, 0.2);
+  width: 100%;
+  height: 300px;
+
+  .image {
+    background-image: url("https://audeoconcepts.com/wp-content/uploads/2017/11/corporate-1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+  }
+  .text {
+    width: calc(100% - 4rem);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 2rem;
+    .icon {
+      margin-right: 1rem;
+    }
+    .settings {
+      position: absolute;
+      right: 30px;
+      top: 10px;
+    }
+    p {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.workspace-cards {
+  display: flex;
+
+  margin: 2rem 0;
+  background-color: #858585 !important;
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(#000, 0.2);
+  padding-top: 2rem;
+}
+
+.workspace-card {
+  width: 100%;
+  margin: 1rem;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(#000, 0.2);
+  border-radius: 4px;
+  padding: 1rem;
+  h4 {
+    margin: 0.5rem 0;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+
+.workspace-list-menu {
+  margin-bottom: 1rem;
+  .top-menu {
+    display: flex;
+    justify-content: space-between;
+    .settings-box {
+      display: flex;
+
+      .filter {
+        width: 200px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-right: 1rem;
+        input {
+          width: 100%;
+          height: 32px;
+          border: 1px solid rgba(#000, 0.2);
+          border-radius: 5px;
+          outline: none;
+          padding-left: 0.3rem;
+        }
+        .icon {
+          position: absolute;
+          right: 10px;
+        }
+      }
+      .sort-by {
+        display: flex;
+        align-items: center;
+        .icon,
+        h5 {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+  .bottom-menu {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding-right: 1rem;
+    button {
+      display: flex;
+      align-items: center;
+      border: none;
+      outline: none;
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .img-btn {
+      p {
+        margin-left: 0.5rem;
+      }
+    }
+    .btn {
+      background-color: #eaecf5;
+      color: #4a5cab;
+    }
+    .green-btn {
+      background-color: #cce5cc;
+      color: #4ca54c;
+    }
+    .blue-btn {
+      background-color: #edf6fa;
+      color: #50a7d2;
+    }
+    .yellow-btn {
+      background-color: #f2e5c4;
+      color: #d8ae47;
+    }
+    .grey-btn {
+      background-color: #cccccc;
+      color: #5e6475;
+    }
+    .light-btn {
+      background-color: #e8e8e8;
+      color: #767b8b;
+    }
+  }
+}

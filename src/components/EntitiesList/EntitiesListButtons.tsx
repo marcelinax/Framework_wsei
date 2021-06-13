@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 
 import EntitiesListSearch from "./EntitiesListSearch";
 import Icon from "../Icon";
@@ -18,6 +18,18 @@ const EntitiesListButtons: FC<Props> = ({
   toggleList,
   isList,
 }) => {
+  const toggleFullscreen = () => {
+    console.log(document.querySelector(".container"));
+    document.querySelector(".sidebar")?.classList.toggle("hide");
+    document.querySelector("nav")?.classList.toggle("hide");
+    document.querySelector("#root>.container")?.classList.toggle("fluid");
+    document.querySelector(".content")?.classList.toggle("fullscreen");
+  };
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(document.location.href);
+  };
+
   return (
     <>
       <div className="top-options-box">
@@ -31,13 +43,14 @@ const EntitiesListButtons: FC<Props> = ({
             className={!isList ? "active" : ""}
           >
             <Icon icon={"th-large-solid.svg"} size={20} />
-            <p>Mosaic</p>
+            {!isList && <p>Mosaic</p>}
           </button>
           <button
             onClick={() => toggleList(true)}
             className={isList ? "active" : ""}
           >
             <Icon icon={"bars-solid.svg"} size={20} />
+            {isList && <p>List</p>}
           </button>
         </div>
       </div>
@@ -61,11 +74,11 @@ const EntitiesListButtons: FC<Props> = ({
             <p>Filters</p>
           </button>
           <div className="divider"></div>
-          <button>
+          <button onClick={toggleFullscreen}>
             <Icon icon={"expand-alt-solid.svg"} size={16} />
           </button>
           <div className="divider"></div>
-          <button>
+          <button onClick={copyToClipboard}>
             <Icon icon={"share-solid.svg"} size={16} />
             <p>Share</p>
           </button>

@@ -1,34 +1,86 @@
 import React, { FC } from "react";
 
-const ProfileTags: FC = () => {
+import ProfileTagSelect from "./ProfileTagSelect";
+
+interface Props {
+  editing: boolean;
+}
+
+const ProfileTags: FC<Props> = ({ editing }) => {
   return (
     <div className="user-tags">
       <div className="tag-group">
-        <h4>Expertise</h4>
-        <div className="tag">Mergers and acquisition</div>
+        <p>Expertise</p>
+        <ProfileTagSelect
+          defaultValue="Mergers and acquisition"
+          options={[
+            "Mergers and acquisition",
+            "Mergers and acquisition2",
+            "Mergers and acquisition3",
+          ]}
+          editing={editing}
+        ></ProfileTagSelect>
       </div>
       <div className="tag-group">
-        <h4>Sp</h4>
-        <div className="tag">CB</div>
-        <div className="tag">TR</div>
+        <p>Specialties</p>
+        <ProfileTagSelect
+          defaultValue="Cross border operation"
+          options={[
+            "Cross border operation",
+            "Cross border operation2",
+            "Cross border operation3",
+          ]}
+          editing={editing}
+        ></ProfileTagSelect>
+        <ProfileTagSelect
+          defaultValue="Transaction over 500M€/$"
+          options={[
+            "Transaction over 500M€/$",
+            "Transaction over 1000M€/$",
+            "Transaction over 200M€/$",
+          ]}
+          editing={editing}
+        ></ProfileTagSelect>
       </div>
       <div className="tag-group">
-        <h4>Sp</h4>
-        <div className="tag">CB</div>
-        <div className="tag">TR</div>
+        <p>Admission to practice law</p>
+        <ProfileTagSelect
+          defaultValue="Paris bar association"
+          options={[
+            "Paris bar association",
+            "Warsaw bar association",
+            "Berlin bar association",
+          ]}
+          editing={editing}
+        ></ProfileTagSelect>
+        <ProfileTagSelect
+          defaultValue="Tunisian bar association"
+          options={[
+            "Tunisian bar association",
+            "Stockholm bar association",
+            "London bar association",
+          ]}
+          editing={editing}
+        ></ProfileTagSelect>
       </div>
       <div className="tag-group">
-        <h4>Sp</h4>
-        <div className="tag">D</div>
-        <div className="tag">U</div>
-        <div className="tag">P</div>
-        <div className="tag">E</div>
-        <div className="tag">N</div>
-        <div className="tag">C</div>
-        <div className="tag">J</div>
-        <div className="tag">O</div>
-        <div className="tag">S</div>
-        <div className="tag">Z</div>
+        <p>Countries</p>
+        <ProfileTagSelect
+          defaultValue="Tunisia"
+          options={[
+            "Tunisia",
+            "Poland",
+            "UK",
+            "Germany",
+            "Sweden",
+            "Egipt",
+            "Cyprus",
+            "France",
+            "Netherlands",
+            "Mexico",
+          ]}
+          editing={editing}
+        ></ProfileTagSelect>
       </div>
     </div>
   );

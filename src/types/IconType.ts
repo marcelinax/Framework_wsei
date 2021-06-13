@@ -27,4 +27,11 @@ export type IconType =
   | "bars-solid.svg"
   | "dot-circle-regular.svg"
   | "times-solid.svg"
-  | "plus-solid.svg";
+  | "plus-solid.svg"
+  | "comment-regular.svg"
+  | "user-regular.svg"
+  | "briefcase-solid.svg"
+  | "pen-solid.svg"
+  | "calendar-alt-regular.svg"
+  | "project-diagram-solid.svg"
+  | "users-solid.svg";

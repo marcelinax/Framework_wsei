@@ -1,6 +1,6 @@
 import "./profile.scss";
 
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
 import ProfileAmountOfFees from "./ProfileAmountOfFees";
 import ProfileInformation from "./ProfileInformation";
@@ -10,19 +10,21 @@ import ProfileProposals from "./ProfileProposals";
 import ProfileTags from "./ProfileTags";
 
 const Profile: FC = () => {
+  const [editing, setEditing] = useState(false);
+
   return (
     <div className="profile">
       <ProfileInformation />
       <hr />
-      <ProfileTags />
+      <ProfileTags editing={editing} />
       <hr />
-      <ProfilePanelInformations />
+      <ProfilePanelInformations toggleEditing={() => setEditing(!editing)} />
       <hr />
-      <ProfileProposals />
+      <ProfileProposals editing={editing} />
       <hr />
-      <ProfileInternalReviews />
+      <ProfileInternalReviews editing={editing} />
       <hr />
-      <ProfileAmountOfFees />
+      <ProfileAmountOfFees editing={editing} />
     </div>
   );
 };

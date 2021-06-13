@@ -1,6 +1,8 @@
 import React, { FC, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import Icon from "../Icon";
+import IconLinkButton from "../IconLinkButton";
 import InputAndText from "../InputAndText";
 import { Link } from "react-router-dom";
 import { RootState } from "../../store/rootStore";
@@ -15,8 +17,35 @@ const ProfileInformation: FC = () => {
 
   return (
     <div className="profile-information">
-      <button onClick={() => setEditing(!editing)}>EUIDASODIK</button>
-      <div className="options"></div>
+      <div className="profile-options-box">
+        <IconLinkButton
+          icon={"comment-regular.svg"}
+          title={"Message"}
+          to={"#"}
+        />
+        <IconLinkButton icon={"file.svg"} title={"Create a request"} to={"#"} />
+        <IconLinkButton
+          icon={"briefcase-solid.svg"}
+          title={"Add to a cluster"}
+          to={"#"}
+        />
+        <Icon icon={"times-solid.svg"} size={16} />
+      </div>
+
+      <button
+        className="edit-btn"
+        onClick={() => {
+          setEditing(!editing);
+        }}
+      >
+        <img
+          src="media/icons/pen-solid.svg"
+          alt="edit"
+          width={15}
+          height={15}
+        />
+      </button>
+
       <div className="profile-box">
         <div className="user">
           <UserAvatar height={80} width={80}></UserAvatar>

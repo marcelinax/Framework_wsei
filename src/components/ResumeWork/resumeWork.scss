@@ -110,3 +110,22 @@
     }
   }
 }
+
+.resume-work-sort-by-dropdown-root {
+  width: 130px;
+  position: relative;
+  cursor: pointer;
+
+  .resume-work-sort-by-dropdown {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(#000, 0.2);
+    left: 0;
+    top: 2rem;
+    cursor: pointer;
+
+    .sort-by {
+      padding: 0.5rem 1rem;
+    }
+  }
+}

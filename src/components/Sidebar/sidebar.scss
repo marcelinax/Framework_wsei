@@ -1,4 +1,7 @@
 .sidebar {
+  &.hide {
+    display: none;
+  }
   .user-section {
     .user-name {
       color: #4457a9;

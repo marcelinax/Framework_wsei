@@ -26,13 +26,13 @@ const UserSelect: FC<Props> = ({ canEdit }) => {
     >
       <img
         src={photos[selectedUser].url}
-        alt="dupa"
+        alt="dupsko"
         width={26}
         height={26}
         className="user-avatar"
       />
       {users[selectedUser].name}
-      {canEdit && <Icon icon={"arrow-down.svg"} size={26}></Icon>}
+      {canEdit && <Icon icon={"arrow-down.svg"} size={13}></Icon>}
       {expanded && (
         <div className="user-select-dropdown">
           {users.map((user) => (

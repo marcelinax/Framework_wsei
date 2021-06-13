@@ -11,6 +11,9 @@
   width: 1200px;
   padding: 0 16px;
   margin: auto;
+  &.fluid {
+    width: calc(100% - 32px);
+  }
 
   @media (max-width: 1232px) {
     width: 100%;
@@ -35,7 +38,14 @@ main {
   .content {
     padding-left: 1rem;
     width: calc(1200px - 300px);
+    &.fullscreen {
+      width: 100%;
+    }
   }
+}
+
+.hide {
+  display: none;
 }
 
 .icon-link-button {
@@ -128,4 +138,44 @@ a {
       margin-top: 0.5rem;
     }
   }
+}
+
+.user-select {
+  display: flex;
+  align-items: center;
+  position: relative;
+  .user-avatar {
+    margin-right: 0.5rem;
+  }
+  .icon {
+    margin-left: 1rem;
+  }
+  &-dropdown {
+    position: absolute;
+    top: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    left: -0.5rem;
+    width: 200%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(#000, 0.1);
+    z-index: 5;
+  }
+}
+
+.edit-btn {
+  position: absolute;
+  right: 0;
+  top: 2rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+
+  &-higher {
+    top: -19rem;
+  }
+}
+
+th {
+  border-bottom: 1px solid #adb1ba;
 }
