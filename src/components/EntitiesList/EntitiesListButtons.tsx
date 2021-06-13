@@ -28,6 +28,7 @@ const EntitiesListButtons: FC<Props> = ({
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(document.location.href);
+    alert("Copied to the clipboard!");
   };
 
   return (
